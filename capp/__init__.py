@@ -7,13 +7,13 @@ import os
 application = Flask(__name__)
 
 ### Code GitHub
-application.config['SECRET_KEY'] = os.environ['SECRET_KEY']  
+#application.config['SECRET_KEY'] = os.environ['SECRET_KEY']  
 DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
 application.config['SQLALCHEMY_BINDS'] ={'transport': DBVAR}
 
 ### Code computer
-#application.config['SECRET_KEY'] = '3oueqkfdfas8ruewqndr8ewrewrouewrere44554'
+application.config['SECRET_KEY'] = '3oueqkfdfas8ruewqndr8ewrewrouewrere44554'
 #DBVAR = 'sqlite:///user.db'
 #application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
 #application.config['SQLALCHEMY_BINDS'] ={'transport': 'sqlite:///transport.db'}
@@ -33,3 +33,4 @@ application.register_blueprint(methodology)
 application.register_blueprint(carbon_app)
 
 application.register_blueprint(users)
+
