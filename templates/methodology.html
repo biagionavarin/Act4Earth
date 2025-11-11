@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}Methodology{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='methodology.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero video in cima -->
+<div class="hero-video-section">
+  <div class="video-background">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="{{ url_for('static', filename='media/methovideo2.mp4') }}" type="video/mp4">
+      Il tuo browser non supporta il tag video.
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <h1>Our Methodology</h1>
+    <p class="intro">
+      Welcome to the Methodology page, where we dive into the details of the calculations powering our carbon emissions analysis. 
+      In a world increasingly focused on environmental sustainability, understanding and mitigating our carbon footprint is essential. 
+      Here, we outline the methodologies behind our calculations, providing transparency and insight into how we measure carbon emissions. 
+      For a comprehensive understanding, we offer a detailed paper outlining our complete methodology, accessible through the link below.
+    </p>
+   <div class="metho-btn">
+    <a class="paper-btn" href="{{ url_for('methodology.paper') }}">Full Paper</a>
+    <a href="#formula-section" class="paper-btn">Formulas</a>
+   </div>
+  </div>
+</div>
+
+<!-- Wrapper per contenuto e footer -->
+<div id="formula-section" class="page-wrapper">
+  <div class="page-content">
+    <section class="methodology-section">
+    <h2>General Formulas</h2>
+
+    <div class="formula">
+  <div class="formula-item">
+    <p>Petrol Emissions Formula</p>
+    <img class="img-formula1" src="{{ url_for('static', filename='images/petrol.png') }}">
+  </div>
+
+  <div class="formula-item">
+    <p>Grid Emission Factor</p>
+    <img class="img-formula4" src="{{ url_for('static', filename='images/Grid.png') }}">
+  </div>
+  
+  <div class="formula-item">
+    <p>Diesel Emissions Formula</p>
+    <img class="img-formula2" src="{{ url_for('static', filename='images/Diesel.png') }}">
+  </div>
+
+  <div class="formula-item">
+    <p>Electric Emissions Formula</p>
+    <img class="img-formula3" src="{{ url_for('static', filename='images/Electric.png') }}">
+  </div>
+</div>
+
+
+      <div class="extra-sections">
+        <div class="method-box large"><i class="fa-solid fa-car"></i>
+          <p>1. Car</p>
+          A car can pollute through various mechanisms depending on its propulsion method, whether it's petrol, diesel, or electric power. 
+          In Norway, thanks to extensive vehicle electrification, electric cars have indirect emissions as low as 40 g CO2/km (related to manufacturing and electricity generation).
+          In 2025, Norway aims 100% of new private cars to be zero-emission.
+        </div>
+        <div class="method-box large"><i class="fa-solid fa-bus"></i>
+          <p>2. Bus</p></div>
+        <div class="method-box large"><i class="bi bi-airplane-fill"></i>
+        <p>3. Airplane</p></div>
+        <div class="method-box large"><i class="bi bi-train-front-fill"></i>
+        <p>4. Train</p></div>
+        <div class="method-box large"><i class="bi bi-scooter"></i>
+        <p>5. Scooter</p></div>
+        <div class="method-box large"><i class="fa-solid fa-ferry"></i>
+        <p>6. Ferry</p></div>
+        <div class="method-box large"><i class="bi bi-bicycle"></i>
+        <p>7. Bicycle</p></div>
+        <div class="method-box large"><i class="fa-solid fa-motorcycle"></i>
+        <p>8. Motorcycle</p></div>
+      </div>
+    </section>
+  </div>
+
+{% endblock %}
