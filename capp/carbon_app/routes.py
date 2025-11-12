@@ -108,7 +108,7 @@ def plane_emission():
         db.session.add(emissions)
         db.session.commit()
         return redirect(url_for('carbon_app.your_data'))
-    return render_template("carbon_app/Plane_emission.html", form=form)
+    return render_template("carbon_app/plane_emission.html", form=form)
 
 @carbon_app.route("/train-emission")
 def train_emission():
@@ -233,4 +233,5 @@ def delete_emission(entry_id):
     db.session.commit()
     flash("Entry deleted", "success")
     return redirect(url_for('carbon_app.your_data'))
+
     
