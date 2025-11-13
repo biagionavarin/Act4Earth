@@ -9,9 +9,9 @@ class RegistrationForm(FlaskForm):
   email = StringField('Email',
                       validators=[DataRequired(), Email()])
   institution = SelectField('Institution',
-                              choices=[('compagnia1', 'Compagnia 1'),
-                                       ('compagnia2', 'Compagnia 2'),
-                                       ('compagnia3', 'Compagnia 3')],
+                              choices=[('company1', 'Company 1'),
+                                       ('company2', 'Company 2'),
+                                       ('company3', 'Company 3')],
                               validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
   confirm_password = PasswordField('Confirm Password',
@@ -35,4 +35,5 @@ class LoginForm(FlaskForm):
   remember = BooleanField('Remember Me')
 
   submit = SubmitField('Login')     
+
 
