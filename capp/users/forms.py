@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from capp.models import User
 
@@ -35,3 +35,4 @@ class LoginForm(FlaskForm):
   remember = BooleanField('Remember Me')
 
   submit = SubmitField('Login')     
+
