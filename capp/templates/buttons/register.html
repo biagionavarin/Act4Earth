@@ -42,6 +42,20 @@
           </div>
 
           <div class="form-group">
+            {{ form.institution.label(class="form-control-label") }}
+            {% if form.institution.errors %}
+              {{ form.institution(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.institution.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.institution(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="form-group">
             {{ form.password.label(class="form-control-label") }}
             {% if form.password.errors %}
               {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -86,3 +100,4 @@
   </div>
 </section>
 {% endblock content %}
+
