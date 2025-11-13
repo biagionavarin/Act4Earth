@@ -11,7 +11,7 @@ def register():
   form = RegistrationForm()
   if form.validate_on_submit():
       user_hashed_password=bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-      user=User(username=form.username.data, email=form.email.data, password=user_hashed_password)
+      user=User(username=form.username.data, email=form.email.data, password=user_hashed_password, institution=form.institution.data)
       db.session.add(user)
       db.session.commit()
       flash('Your account has been created! Now, you are able to login!', 'success')
@@ -39,4 +39,5 @@ def logout ():
    flash('You have logged out!', 'success') 
    logout_user()
    return redirect(url_for('home.home_home'))
+
 
