@@ -8,6 +8,11 @@ class RegistrationForm(FlaskForm):
                          validators=[DataRequired(), Length(min=2, max=30)])
   email = StringField('Email',
                       validators=[DataRequired(), Email()])
+  institution = SelectField('Institution',
+                              choices=[('compagnia1', 'Compagnia 1'),
+                                       ('compagnia2', 'Compagnia 2'),
+                                       ('compagnia3', 'Compagnia 3')],
+                              validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
   confirm_password = PasswordField('Confirm Password',
                       validators=[DataRequired(), EqualTo('password')])                                
@@ -28,4 +33,5 @@ class LoginForm(FlaskForm):
                       validators=[DataRequired(), Email()])
   password = PasswordField('Password', validators=[DataRequired()])
   remember = BooleanField('Remember Me')
+
   submit = SubmitField('Login')     
