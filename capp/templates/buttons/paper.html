@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}Full Methodology Paper{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='buttons/paper.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="paper-wrapper">
+
+    <h1>Full Methodology Paper</h1>
+
+    <p>
+        The global challenge of climate change requires urgent and comprehensive action across all sectors.
+        The transport sector in particular is a critical area in Europe where significant emissions
+        reductions must be achieved. Current data from the International Energy Agency (IEA) show that 
+        the transport sector was responsible for 32% of total emissions in Europe in 2023 (IEA, 2025).
+    </p>
+
+    <p>
+        At the same time, public awareness and concern about climate change is steadily increasing
+        (Schwerdtle et al., 2023). However, this rising awareness often contrasts with the limited pace of 
+        climate policy implementation at national level (Reuters, 2025). This gap opens the opportunity 
+        for innovative, citizen-centred solutions.
+    </p>
+
+    <p>
+        In this context, this paper presents the methodology and business plan for a new carbon footprint app.
+        The app is designed as a practical tool that collects real mobility data and makes individual impact 
+        transparent without relying on complex systems or unrealistic assumptions. Rather than focusing only 
+        on individual users, the app also targets companies, encouraging them to integrate mobility-based 
+        emissions tracking into their sustainability strategies.
+    </p>
+
+    <p>
+        As a group of five students from Italy, France, Belgium, and Germany, we bring together different 
+        perspectives, habits, and cultural approaches. These differences became a strength, helping us look 
+        at the same problem from multiple angles and develop solutions that are practical, adaptable, and 
+        inclusive. Working together highlighted how everyday behaviours differ from one country to another, 
+        and how small habits can influence emissions. This diversity shaped our vision of an app that connects 
+        people and data across environments.
+    </p>
+
+    <p>
+        The structure of this paper is as follows:  
+        First, we explain the purpose of the app.  
+        Second, we describe the methodology behind the calculations, including the algorithms and data sources.  
+        Finally, we present the business plan, covering market strategy, revenue model, and scalability.
+    </p>
+
+</div>
+
+{% endblock %}
