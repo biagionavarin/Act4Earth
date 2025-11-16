@@ -9,15 +9,15 @@ carbon_app=Blueprint('carbon_app',__name__)
 
 #Emissions factor per transport in kg per passenger km
 #Data from: http://efdb.apps.eea.europa.eu/?source=%7B%22query%22%3A%7B%22match_all%22%3A%7B%7D%7D%2C%22display_type%22%3A%22tabular%22%7D
-efco2={'Bus':{'Diesel':0.67,'Electric':0.16},
-    'Car':{'Petrol':0.125,'Diesel':0.127,'Electric':0.65},
+efco2={'Bus':{'Diesel':0.08},
+    'Car':{'Petrol':0.122,'Diesel':0.148,'Electric':0},
     'Plane':{'Kerosene':0.225},
     'Ferry':{'Diesel':0.267},
-    'Motorbike':{'Petrol':0.112,'Diesel':0.89},
-    'Scooter':{'Electric':0.60},
-    'Bicycle':{'Normal':0.07,'Electric':0.17},
+    'Motorbike':{'Petrol':0.112,'Diesel':0.089},
+    'Scooter':{'Electric':0.034},
+    'Bicycle':{'Normal':0.0,'Electric':0.03},
     'Walk':{'No Fossil Fuel':0},
-    'Train':{'Diesel':0.63,'Electric':0.2075}}
+    'Train':{'Diesel':0.063,'Electric':0.005}}
 
 @carbon_app.route('/carbon_app')
 @login_required
