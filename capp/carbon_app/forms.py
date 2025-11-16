@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired
 class BusForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Diesel', 'Diesel'), ('Electric', 'Electric')])
+    choices=[('Diesel', 'Diesel')])
   submit = SubmitField('Submit')
 
 class CarForm(FlaskForm):
