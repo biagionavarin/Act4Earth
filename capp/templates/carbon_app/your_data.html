@@ -8,7 +8,6 @@
 
 {% block content %}
 
-<!-- 🔹 Background immagine -->
 <div class="image-background">
   <img src="{{ url_for('static', filename='images/trainbackground.jpg') }}" alt="Background" id="bg-image">
   <div class="image-overlay"></div>
@@ -18,12 +17,10 @@
   <h1>Your Emission Data</h1>
   <p class="subtitle">Here you can see all your submitted transport entries and manage them.</p>
 
-  <!-- 🔹 Pulsante New Entry -->
   <div class="btn-new-entry">
     <a href="{{ url_for('carbon_app.carbon_app_home') }}" class="btn-submit">New Entry</a>
   </div>
 
-  <!-- 🔹 Flash messages -->
   {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
           {% for category, message in messages %}
@@ -32,7 +29,6 @@
       {% endif %}
   {% endwith %}
 
-  <!-- 🔹 Tabella -->
   <div class="table-card">
     <table class="table">
       <thead>
@@ -66,11 +62,81 @@
       </tbody>
     </table>
   </div>
-  <div class="back-link">
+
+  <!-- ==== CHARTS ==== -->
+  <div class="charts-container">
+    <div class="chart-box">
+        <h3>Emissions per Vehicle</h3>
+        <canvas id="pie_transport_chart"></canvas>
+    </div>
+
+    <div class="chart-box">
+    <h3>Weekly Emissions</h3>
+    <canvas id="weekly_emissions_chart"></canvas>
+    <p id="weekly-total" style="color:white; margin-top:10px;"></p>
+</div>
+  </div>
+
+  <div class="back-link" style="margin-top:30px;">
     <a href="{{ url_for('carbon_app.carbon_app_home') }}">
       <i class="fa-solid fa-arrow-left"></i> Back to Carbon App
     </a>
   </div>
 </div>
+
+{% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const pieLabels = {{ vehicle_labels | tojson }};
+    const pieValues = {{ vehicle_totals | tojson }};
+
+    const weeklyLabels = {{ weekly_labels | tojson }};
+    const weeklyValues = {{ weekly_emissions | tojson }};
+
+    const pieColors = ['#FF6384','#36A2EB','#FFCE56','#4BC0C0','#9966FF','#FF9F40','#8A2BE2','#00FA9A'];
+
+    new Chart(document.getElementById("pie_transport_chart"), {
+        type: "pie",
+        data: {
+            labels: pieLabels,
+            datasets: [{
+                label: "Total Emissions",
+                data: pieValues,
+                backgroundColor: pieColors
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+
+const weeklyChart = new Chart(document.getElementById("weekly_emissions_chart"), {
+    type: "bar",
+    data: {
+        labels: weeklyLabels,
+        datasets: [{
+            label: "Weekly CO₂ Emissions (kg)",
+            data: weeklyValues,
+            backgroundColor: '#36A2EB'
+        }]
+    },
+    options: {plugins: {legend: { labels: { color: '#ffffff' } }},scales: {
+            x: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+            y: { ticks: { color: '#ffffff', beginAtZero: true }, grid: { color: 'rgba(255,255,255,0.1)' } }}}});
+
+// --- Mostrare il totale ---
+const totalWeeklyEmission = weeklyValues.reduce((a,b) => a+b, 0);
+document.getElementById("weekly-total").textContent = `Your total weekly emissions are ${totalWeeklyEmission.toFixed(2)} kg CO₂`;
+
+</script>
+
+{% endblock %}
 
 {% endblock %}
