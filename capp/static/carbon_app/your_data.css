@@ -211,6 +211,30 @@ tr:nth-child(even) {
   background-color: #ff1a1a;
 }
 
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    color: white;
+}
+
+.chart-box {
+    max-width: 800px;        /* limita la larghezza massima */
+    background: #764f14b3;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.chart-box canvas {
+    width: 7%;
+    height: 200px;
+}
+
+
 /* Link back */
 .back-link {
   margin-top: 25px;
