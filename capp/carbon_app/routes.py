@@ -204,11 +204,30 @@ def motorbike_emission():
 @carbon_app.route('/carbon_app/your_data')
 @login_required
 def your_data():
-    #Table
     entries = Transport.query.filter_by(author=current_user). \
-        filter(Transport.date> (datetime.now() - timedelta(days=5))).\
         order_by(Transport.date.desc()).order_by(Transport.transport.asc()).all()
-    return render_template('carbon_app/your_data.html', title='your_data', entries=entries)
+
+    # 2️⃣ Preparazione dati per i grafici
+    vehicle_labels = []       # Pie chart: tipi di veicolo
+    vehicle_totals = []       # Pie chart: totale emissioni per veicolo
+
+    weekly_labels = []        # Bar chart: etichette veicolo + carburante
+    weekly_emissions = []     # Bar chart: emissioni settimanali
+
+    for e in entries:
+        # --- PIE CHART ---
+        if e.transport not in vehicle_labels:
+            vehicle_labels.append(e.transport)
+            vehicle_totals.append(float(e.co2))
+        else:
+            index = vehicle_labels.index(e.transport)
+            vehicle_totals[index] += float(e.co2)
+
+        # --- BAR CHART ---
+        weekly_labels.append(f"{e.transport} ({e.fuel})")
+        weekly_emissions.append(float(e.co2) * int(e.days_used))
+
+    return render_template('carbon_app/your_data.html', title='your_data', entries=entries, vehicle_labels=vehicle_labels, vehicle_totals=vehicle_totals, weekly_labels=weekly_labels, weekly_emissions=weekly_emissions)
 
 #Delete emission
 @carbon_app.route('/carbon_app/delete-emission/<int:entry_id>')
