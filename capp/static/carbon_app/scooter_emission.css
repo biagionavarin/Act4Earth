@@ -1,7 +1,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -9,7 +8,6 @@ body {
   padding-top: 80px;
   color: #e1d2bc;
 }
-
 .image-background {
   position: fixed;
   top: 0;
@@ -19,7 +17,6 @@ body {
   overflow: hidden;
   z-index: -1;
 }
-
 .image-overlay {
   position: absolute;
   top: 0;
@@ -29,13 +26,11 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 0;
 }
-
 #bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .navbar {
   position: fixed;
   top: 0;
@@ -49,7 +44,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .navbar-menu {
   list-style: none;
   display: flex;
@@ -57,7 +51,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .navbar a {
   text-decoration: none;
   color: #dabf86;
@@ -65,18 +58,15 @@ body {
   font-weight: normal;
   transition: color 0.3s ease;
 }
-
 .navbar a:hover {
   color: #ffffff;
 }
-
 .navbar a.active {
   border-bottom: 2px solid #ffffff;
   color: #ffffff;
   text-shadow: 0 0 5px #b5935d,0 0 10px #b5935d,0 0 20px #b5935d,0 0 40px #b5935d;
   transition: all 0.3s ease;
 }
-
 .logout-button {
   position: absolute;
   right: 20px;
@@ -89,12 +79,10 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
 .logout-button:hover {
   color: #ffffff;
   text-shadow: none;
 }
-
 .image-background {
   position: fixed;
   top: 0;
@@ -104,40 +92,32 @@ body {
   overflow: hidden;
   z-index: -1;
 }
-
 .image-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 }
-
 #bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* Contenitore principale */
 .scooter-emission-container {
   max-width: 500px;
   margin: 0 auto;
   padding: 60px 20px 120px;
   text-align: center;
 }
-
 .scooter-emission-container h1 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: rgb(252, 240, 219);
   margin-bottom: 10px;
 }
-
 .subtitle {
   color: rgb(252, 240, 219);
   margin-bottom: 30px;
 }
-
-/* Card del form */
 .form-card {
   background-color: rgb(118, 79, 20);
   padding: 30px 20px;
@@ -145,20 +125,16 @@ body {
   box-shadow: 0 0 10px rgba(118, 79, 20, 0.4);
   backdrop-filter: blur(4px);
 }
-
-/* Input e label */
 .form-group {
   margin-bottom: 20px;
   text-align: center;
 }
-
 .form-label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
   color: rgb(252, 240, 219);
 }
-
 .form-input {
   width: 50%;
   padding: 10px;
@@ -167,11 +143,9 @@ body {
   font-size: 1em;
   align-self: center;
 }
-
 .form-input.is-invalid {
   border: 2px solid #ff6666;
 }
-
 .error-msg {
   color: #ff9999;
   font-size: 0.9em;
@@ -180,7 +154,6 @@ body {
 .form-input option:nth-child(odd) {
     background-color: white;
 }
-
 .form-input option:nth-child(even) {
     background-color: rgb(238, 238, 238);
 }
@@ -194,16 +167,12 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .btn-submit:hover {
   text-decoration: underline;
 }
-
-/* Link back */
 .back-link {
   margin-top: 25px;
 }
-
 .back-link a {
   color:#e6dccd;
   text-decoration: none;
@@ -212,16 +181,13 @@ body {
   padding: 8px;
   border-radius: 10px;
 }
-
 .back-link a:hover {
   text-decoration: underline;
 }
-
 .footer-container {
   background-color: rgb(118, 79, 20);
   backdrop-filter: blur(10px);
 }
-
 .back-bar {
   background-color: rgb(118, 79, 20);
 }
