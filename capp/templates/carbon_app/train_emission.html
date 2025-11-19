@@ -8,13 +8,11 @@
 
 {% block content %}
 
-<!-- 🔹 Background immagine come su carbon_app -->
 <div class="image-background">
   <img src="{{ url_for('static', filename='images/trainbackground.jpg') }}" alt="Background" id="bg-image">
   <div class="image-overlay"></div>
 </div>
 
-<!-- 🔹 Contenuto principale -->
 <div class="train-emission-container">
   <h1><i class="bi bi-train-front-fill"></i> Train Emission Calculator</h1>
   <p class="subtitle">Insert the distance and fuel type to estimate CO₂ emissions.</p>
