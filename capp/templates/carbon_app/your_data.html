@@ -63,7 +63,6 @@
     </table>
   </div>
 
-  <!-- ==== CHARTS ==== -->
   <div class="charts-container">
     <div class="chart-box">
         <h3>Emissions per Vehicle</h3>
@@ -98,24 +97,8 @@
 
     new Chart(document.getElementById("pie_transport_chart"), {
         type: "pie",
-        data: {
-            labels: pieLabels,
-            datasets: [{
-                label: "Total Emissions",
-                data: pieValues,
-                backgroundColor: pieColors
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'
-                    }
-                }
-            }
-        }
-    });
+        data: {labels: pieLabels, datasets: [{ label: "Total Emissions", data: pieValues, backgroundColor: pieColors }]},
+        options: { plugins: { legend: { labels: { color: '#ffffff'}}}}});
 
 const weeklyChart = new Chart(document.getElementById("weekly_emissions_chart"), {
     type: "bar",
@@ -131,13 +114,8 @@ const weeklyChart = new Chart(document.getElementById("weekly_emissions_chart"),
             x: { ticks: { color: '#ffffff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
             y: { ticks: { color: '#ffffff', beginAtZero: true }, grid: { color: 'rgba(255,255,255,0.1)' } }}}});
 
-// --- Mostrare il totale ---
 const totalWeeklyEmission = weeklyValues.reduce((a,b) => a+b, 0);
 document.getElementById("weekly-total").textContent = `Your total weekly emissions are ${totalWeeklyEmission.toFixed(2)} kg CO₂`;
-
 </script>
 
 {% endblock %}
-
-{% endblock %}
-
