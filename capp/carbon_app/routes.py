@@ -7,8 +7,6 @@ from capp.carbon_app.forms import BusForm, CarForm, PlaneForm, FerryForm, Motorb
 
 carbon_app=Blueprint('carbon_app',__name__)
 
-#Emissions factor per transport in kg per passenger km
-#Data from: http://efdb.apps.eea.europa.eu/?source=%7B%22query%22%3A%7B%22match_all%22%3A%7B%7D%7D%2C%22display_type%22%3A%22tabular%22%7D
 efco2={'Bus':{'Diesel':0.08},
     'Car':{'Petrol':0.122,'Diesel':0.148,'Electric':0},
     'Plane':{'Kerosene':0.225},
@@ -207,15 +205,13 @@ def your_data():
     entries = Transport.query.filter_by(author=current_user). \
         order_by(Transport.date.desc()).order_by(Transport.transport.asc()).all()
 
-    # 2️⃣ Preparazione dati per i grafici
-    vehicle_labels = []       # Pie chart: tipi di veicolo
-    vehicle_totals = []       # Pie chart: totale emissioni per veicolo
+    vehicle_labels = []
+    vehicle_totals = []
 
-    weekly_labels = []        # Bar chart: etichette veicolo + carburante
-    weekly_emissions = []     # Bar chart: emissioni settimanali
+    weekly_labels = []
+    weekly_emissions = []
 
     for e in entries:
-        # --- PIE CHART ---
         if e.transport not in vehicle_labels:
             vehicle_labels.append(e.transport)
             vehicle_totals.append(float(e.co2))
@@ -223,13 +219,11 @@ def your_data():
             index = vehicle_labels.index(e.transport)
             vehicle_totals[index] += float(e.co2)
 
-        # --- BAR CHART ---
         weekly_labels.append(f"{e.transport} ({e.fuel})")
         weekly_emissions.append(float(e.co2) * int(e.days_used))
 
     return render_template('carbon_app/your_data.html', title='your_data', entries=entries, vehicle_labels=vehicle_labels, vehicle_totals=vehicle_totals, weekly_labels=weekly_labels, weekly_emissions=weekly_emissions)
 
-#Delete emission
 @carbon_app.route('/carbon_app/delete-emission/<int:entry_id>')
 def delete_emission(entry_id):
     entry = Transport.query.get_or_404(int(entry_id))
@@ -238,3 +232,4 @@ def delete_emission(entry_id):
     flash("Entry deleted", "success")
     return redirect(url_for('carbon_app.your_data'))
     
+
