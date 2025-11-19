@@ -1,7 +1,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -9,7 +8,6 @@ body {
   padding-top: 40px;
   color: #e1d2bc;
 }
-
 .image-background {
   position: fixed;
   top: 0;
@@ -19,7 +17,6 @@ body {
   overflow: hidden;
   z-index: -1;
 }
-
 .image-overlay {
   position: absolute;
   top: 0;
@@ -29,13 +26,11 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 0;
 }
-
 #bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .navbar {
   position: fixed;
   top: 0;
@@ -49,7 +44,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .navbar-menu {
   list-style: none;
   display: flex;
@@ -57,7 +51,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .navbar a {
   text-decoration: none;
   color: #dabf86;
@@ -65,18 +58,15 @@ body {
   font-weight: normal;
   transition: color 0.3s ease;
 }
-
 .navbar a:hover {
   color: #ffffff;
 }
-
 .navbar a.active {
   border-bottom: 2px solid #ffffff;
   color: #ffffff;
   text-shadow: 0 0 5px #b5935d,0 0 10px #b5935d,0 0 20px #b5935d,0 0 40px #b5935d;
   transition: all 0.3s ease;
 }
-
 .logout-button {
   position: absolute;
   right: 20px;
@@ -89,31 +79,26 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
 .logout-button:hover {
   color: #ffffff;
   text-shadow: none;
 }
-
 .carbon-app-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 70px 20px 100px 20px;
   text-align: flex-start;
 }
-
 .carbon-app-container h1 {
   font-size: clamp(1.4rem, 3.5vw, 2rem);
   color: rgb(252, 240, 219);
   margin-bottom: 8px;
 }
-
 .carbon-app-container .h3 {
   font-size: clamp(1rem, 2.2vw, 1.15em);
   color: rgb(252, 240, 219);
   margin-bottom: 25px;
 }
-
 .tutorial-buttons {
   display: flex;
   gap: 15px;
@@ -122,7 +107,6 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-
 .tutorial-box {
     display: inline-block;
   padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 35px);
@@ -139,21 +123,17 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-
 .tutorial-box:hover {
   background-color: rgba(248, 231, 196, 0.25);
 }
-
 .tutorial-content h2 {
   align-items: end;
 }
-
 .try-btn {
   width:34%;
   margin-left:100px;
   text-align: center;
 }
-
 .data-button {
   display: inline-block;
   padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 35px);
@@ -169,11 +149,9 @@ body {
   background-color: #ffffff16;
   border-radius: 10px;
 }
-
 .data-button:hover {
   background-color: rgba(248, 231, 196, 0.25);
 }
-
 .eco-divider {
   width: 80%;
   margin-bottom: 80px;
@@ -182,12 +160,10 @@ body {
   border: none;
   background-color: rgb(252, 240, 219);
 }
-
 .features {
   margin-top: 60px;
   margin-bottom: 60px;
 }
-
 .features ul {
   list-style: none;
   margin: 0 auto;
@@ -199,7 +175,6 @@ body {
   justify-content:center;
   padding: 0;
 }
-
 .features ul li a {
   background-color: rgba(118, 79, 20, 0.55);
   text-decoration: none;
@@ -220,22 +195,17 @@ body {
   min-height: 110px;
   box-shadow: 0 0 8px rgba(118, 79, 20, 0.3);
 }
-
 .features ul li a i {
   font-size: 1.6em;             
   margin-bottom: 5px;           
 }
-
 .features ul li a i.bi {
   font-size: 2.2em;
 }
-
-
 .features ul li a:hover {
   background-color: rgba(248, 231, 196, 0.22);
   transform: translateY(-3px);
 }
-
 @media (max-width: 900px) {
   .navbar { flex-direction: column; padding: 6px 0; }
   .navbar-menu { flex-direction: column; gap: 5px; }
@@ -243,7 +213,6 @@ body {
   .titles-row { flex-direction: column; gap: 15px; }
   .features ul { grid-template-columns: repeat(2, 1fr); gap: 25px; }
 }
-
 @media (max-width: 500px) {
   .navbar a { font-size: clamp(0.8rem, 3vw, 1.5em); }
   .logout-button { font-size: clamp(0.7rem, 2.5vw, 1em); }
@@ -251,12 +220,9 @@ body {
   .features ul { grid-template-columns: 1fr; gap: 20px; }
   .features ul li a { min-height: 60px; }
 }
-
 .back-bar {
   background-color: rgb(118, 79, 20);
 }
-
-/* === STILE PER IL POPUP === */
 .tutorial-modal {
   display: none;
   position: fixed;
@@ -266,8 +232,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-/* Contenitore principale del popup */
 .tutorial-content {
   background-color: #e6e6e6;
   color: #000;
@@ -287,8 +251,6 @@ body {
   position: relative;
   font-size: clamp(14px, 1vw, 20px);
 }
-
-/* Pulsante di chiusura */
 .close-btn {
   position: absolute;
   top: 1vw;
@@ -302,8 +264,6 @@ body {
 .close-btn:hover {
   color: #000;
 }
-
-/* Layout interno */
 .tutorial-layout {
   display: flex;
   flex: 1;
@@ -312,8 +272,6 @@ body {
   flex-wrap: nowrap;
   gap: 1vw;
 }
-
-/* Colonna sinistra: immagine iPhone */
 .iphone-side {
   flex: 1 1 35%;
   display: flex;
@@ -328,8 +286,6 @@ body {
   box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease-in-out;
 }
-
-/* Colonna destra: testo e pulsante */
 .steps-side {
   flex: 1 1 60%;
   text-align: left;
@@ -338,7 +294,6 @@ body {
   justify-content: center;
   gap: 1vw;
 }
-
 .step h3 {
   color: #6e572d;
   font-size: clamp(0.9rem, 1.4vw, 1.3rem);
@@ -350,8 +305,6 @@ body {
   margin-bottom: 0.8vw;
   line-height: 1.4;
 }
-
-/* Pulsante “Try the Carbon App” */
 .try-btn {
   display: inline-block;
   background-color: #6e572d;
@@ -368,8 +321,6 @@ body {
   background-color: #8c6e3a;
   transform: translateY(-2px);
 }
-
-/* === RESPONSIVITÀ FLUIDA === */
 @media (max-width: 900px) {
   .tutorial-content {
     flex-direction: column;
@@ -389,7 +340,6 @@ body {
     align-self: center;
   }
 }
-
 @media (max-width: 480px) {
   .tutorial-content {
     padding: 5vw;
@@ -400,18 +350,13 @@ body {
     max-width: 65vw;
   }
 }
-
-/* Colonna sinistra: immagine iPhone */
 .iphone-side {
   flex: 1 1 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .footer-container {
   background-color: rgb(118, 79, 20);
   backdrop-filter: blur(10px);
 }
-
-
